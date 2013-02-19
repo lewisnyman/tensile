@@ -1,1 +1,28 @@
 greeting: hello world
+title: Responsive Style Guide
+subtitle: A framework for awesomeness
+introduction: This is a framework that builds a responsive style guide from you custom components, it's hot stuff. Edit structure.yml to update the guide and refresh the page.
+colors:
+  white:
+    name: White
+    hex: FFF
+    var:
+  text:
+    name: Text
+    hex: 1a1a1a
+    var:
+  burlap:
+    name: Burlap
+    hex: ebeae4
+    var:
+  drupalblue:
+    name: Drupal Blue
+    hex: 0074bd
+    var:
+components:
+  headers: 
+    title: headers
+    url: http://www.anderssonwise.com
+  nav:
+    title: nav
+    url: http://www.anderssonwise.com

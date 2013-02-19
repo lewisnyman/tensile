@@ -7,10 +7,9 @@ $.ajax({
     console.log(data);
     var doc = jsyaml.load(data);
     console.log(doc);
-    var test   = $("#test").html();
-    var template = Handlebars.compile(test);
+    var page   = $("#page").html();
+    var template = Handlebars.compile(page);
     var html = template(doc);
-    console.log(html);
     $('body').html(html);
   },
   error: function(xhr, type){
