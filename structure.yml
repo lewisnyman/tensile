@@ -1,4 +1,3 @@
-greeting: hello world
 title: Responsive Style Guide
 subtitle: A framework for awesomeness
 introduction: This is a framework that builds a responsive style guide from you custom components, it's hot stuff. Edit structure.yml to update the guide and refresh the page.
@@ -21,8 +20,17 @@ colors:
     var:
 components:
   headers: 
-    title: headers
-    url: http://www.anderssonwise.com
-  nav:
-    title: nav
-    url: http://www.anderssonwise.com
+    title: Buttons
+    url: patterns/buttons/index.html
+  popups:
+    title: Popups
+    url: patterns/popups/index.html
+  menus:
+    title: Menus
+    url: patterns/menus/index.html
+  dropdown-menu:
+    title: Dropdown Menu
+    url: patterns/dropdown-menu/index.html
+  extended-buttons:
+    title: Extended Buttons
+    url: patterns/extended-buttons/index.html

@@ -2,37 +2,19 @@
 
 <html>
 <head>
-<title>Responsive Style Guide</title>
+<link rel="stylesheet" href="assets/ui/css/style.css">
 
-<script id="test" type="text/x-handlebars-template">
-<strong>{{greeting}}</strong>
-</script>
-<script id="page" type="text/x-handlebars-template">
-<h1>{{title}}</h1>
-<h2>{{subtitle}}</h2>
-<p>{{introduction}}</p>
-<h2>Colors</h2>
-<ul>
-{{#each colors}}
-  <li>{{name}} - #{{hex}}</li>
-{{/each}}
-</ul>
-<h2>Components</h2>
-{{#each components}}
-  <section>
-    <h3>{{title}}</h3>
-    <iframe src="{{url}}"></iframe>
-  <section>
-{{/each}}
-</script>
-<script src="assets/engine/zepto.js"></script>
-<script src="assets/engine/js-yaml.min.js"></script>
-<script src="assets/engine/handlebars.js"></script>
-<script type="text/javascript" language="Javascript" src="builder.js"></script>
 </head>
 
 <body>
 
 </body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../_javascripts/vendor/jquery.min.js"><\/script>')</script>
+<script src="assets/engine/jquery.browser.js"></script>
+<script type="text/javascript" language="Javascript" src="assets/engine/jquery.iframe-auto-height.js"></script>
+<script src="assets/engine/js-yaml.min.js"></script>
+<script src="assets/engine/handlebars.js"></script>
+<script type="text/javascript" language="Javascript" src="builder.js"></script>
 
 </html>
