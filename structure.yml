@@ -1,6 +1,6 @@
-title: Responsive Style Guide
-subtitle: A framework for awesomeness
-introduction: This is a framework that builds a responsive style guide from you custom components, it's hot stuff. Edit structure.yml to update the guide and refresh the page.
+title: tensile
+subtitle: Create responsive, user friendly style guides
+introduction: Tensile achieves complete separation between your style guide UI and your referenced components by sandboxing them within their own paths, giving you a classy style guide UX right out of the box.
 colors:
   white:
     name: White
@@ -10,6 +10,7 @@ colors:
     name: Text
     hex: 1a1a1a
     var:
+    dark: true
   burlap:
     name: Burlap
     hex: ebeae4
@@ -17,13 +18,16 @@ colors:
   drupalblue:
     name: Drupal Blue
     hex: 0074bd
+    dark: true
     var:
 components:
-  headers: 
+  buttons: 
     title: Buttons
+    description:
     url: patterns/buttons/index.html
   popups:
     title: Popups
+    description:
     url: patterns/popups/index.html
   menus:
     title: Menus
