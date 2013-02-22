@@ -21,9 +21,15 @@ colors:
     dark: true
     var:
 components:
-  typoraphy:
+  headings:
     title: Headings
     url: patterns/headings/index.html
+  text:
+    title: Text
+    url: patterns/text/index.html
+  forms:
+    title: Form Items
+    url: patterns/form-items/index.html
   buttons: 
     title: Buttons
     description:
