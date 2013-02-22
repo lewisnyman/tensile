@@ -1,6 +1,6 @@
 title: tensile
 subtitle: Create responsive, user friendly style guides
-introduction: Tensile achieves complete separation between your style guide UI and your referenced components by sandboxing them within their own paths, giving you a classy style guide UX right out of the box.
+introduction: Tensile gives you complete separation between your style guide interface and your referenced components by sandboxing them within their own paths, giving you a highly useable style guide without affecting your design.
 colors:
   white:
     name: White
@@ -21,6 +21,9 @@ colors:
     dark: true
     var:
 components:
+  typoraphy:
+    title: Headings
+    url: patterns/headings/index.html
   buttons: 
     title: Buttons
     description:
