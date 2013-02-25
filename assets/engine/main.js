@@ -32,6 +32,14 @@
     });
   }
   
+  Handlebars.registerHelper('toLowerCase', function(value) {
+      if(object) {
+          return new Handlebars.SafeString(value.toLowerCase());
+      } else {
+          return '';
+      }
+  });
+  
   $.ajax({
     type: 'GET',
     url: 'structure.yml',
@@ -42,7 +50,9 @@
       var pagehtml = pagetemplate(doc);
       var titletemplate = Handlebars.compile(title);
       var titlehtml = titletemplate(doc);
-      $('#page').html(pagehtml);
+      var toolbartemplate = Handlebars.compile(toolbar);
+      var toollbarhtml = toolbartemplate(doc);
+      $('body').html(toollbarhtml + pagehtml);
       $('head').append(titlehtml);
       manageIframes();
 //      showCode();
@@ -54,7 +64,22 @@
   
   var title = "<title>{{title}} | {{subtitle}}</title>";
   
-  var page = 
+  var toolbar = 
+    "<div class='toolbar'> " +
+//    "  <div class='container'>" +
+//    "    <ul class='nav clearfix'>" +
+//    "    {{#each components}}" +
+//    "      <li><a href=#{{title}}>{{title}}</a></li>" +
+//    "    {{/each}}" +
+//    "    </ul>" +
+//    "  </div>" +
+    "  <div class='container'>" +
+    "    <div class='is-resizeable'><div class='is-for-width'></div></div>" +
+    "  </div>" +
+    "</div>";
+
+  var page =
+  "<div id='page' class='container'>" +
   "<h1 class='title'>{{title}}</h1>" +
   "<h2 class='subtitle'>{{subtitle}}</h2>" +
   "<p>{{introduction}}</p>" +
@@ -66,12 +91,14 @@
   "</ul>" +
   "<h2>Components</h2>" +
   "{{#each components}}" +
-  "  <section class='component'>" +
+  "  <section id='{{title}}' class='component'>" +
   "    <h3>{{title}}</h3>" +
   "    <div class='iframe-container'>" +
   "      <iframe src='{{url}}'></iframe>" +
   "    </div>" +
   "  </section>" +
-  "{{/each}}";
-
-})();
+  "{{/each}}" +
+  "</div>";
+  
+  })();
+  
