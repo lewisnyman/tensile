@@ -32,13 +32,10 @@
     });
   }
   
-  Handlebars.registerHelper('toLowerCase', function(value) {
-      if(object) {
-          return new Handlebars.SafeString(value.toLowerCase());
-      } else {
-          return '';
-      }
-  });
+  Handlebars.registerHelper('idsafe', function(str) {
+      str = str.replace(/ /g , "-");
+      return str.toLowerCase();
+    });
   
   $.ajax({
     type: 'GET',
@@ -67,13 +64,14 @@
   var toolbar = 
     "<div class='toolbar'> " +
 //    "  <div class='container'>" +
-//    "    <ul class='nav clearfix'>" +
+//    "    <a class='nav-trigger' href='#tensile-nav'>Menu</a>" +
+//    "    <ul id='tensile-nav' class='nav clearfix'>" +
 //    "    {{#each components}}" +
-//    "      <li><a href=#{{title}}>{{title}}</a></li>" +
+//    "      <li><a class='nav-link' href='#{{idsafe title}}'>{{title}}</a></li>" +
 //    "    {{/each}}" +
 //    "    </ul>" +
 //    "  </div>" +
-    "  <div class='container'>" +
+    "  <div class='container is-resizable-container'>" +
     "    <div class='is-resizeable'><div class='is-for-width'></div></div>" +
     "  </div>" +
     "</div>";
@@ -91,7 +89,7 @@
   "</ul>" +
   "<h2>Components</h2>" +
   "{{#each components}}" +
-  "  <section id='{{title}}' class='component'>" +
+  "  <section id='{{idsafe title}}' class='component'>" +
   "    <h3>{{title}}</h3>" +
   "    <div class='iframe-container'>" +
   "      <iframe src='{{url}}'></iframe>" +
