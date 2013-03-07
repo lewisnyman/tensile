@@ -1,6 +1,12 @@
 /**
  * @file
  */
+
+/**
+ * Leader and trailer classes add one baseline of whitespace above and below
+ * an element, respectively. Helps maintain a consistent (optimally readable)
+ * vertical rhythm down the page.
+ */
 .leader {
   margin-top: 1.5em;
 }
@@ -8,13 +14,10 @@
   margin-bottom: 1.5em;
 }
 
-p:first-child {
-  margin-top: 0;
-}
-p:last-child {
-  margin-bottom: 0;
-}
-
+/**
+ * Standard headings, following the standard typographers’ convention from
+ * Bringhurst (A-head, B-head, etc.).
+ */
 .heading-a {
   font-size: 1.625em;
   line-height: 1.875em;

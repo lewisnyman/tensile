@@ -1,31 +1,37 @@
 /*!
  * Drupal UI Base Component
+ * 
+ * Inherits from the jQuery UI Widget Factory and overrides a number of methods
+ * from the base Widget. This is dumb, reasons are inline. Note that original
+ * comments that come from the jQuery UI source have been removed to avoid
+ * confusion with comments on the overridden methods. For original code, see:
+ * https://github.com/jquery/jquery-ui/blob/master/ui/jquery.ui.widget.js
  */
 
 ;(function( $, w, d, undefined ) {
 
   'use strict';
 
-  // define your widget under a namespace of your choice with additional
-  // parameters, e.g.
-  // $.widget( "namespace.widgetname", (optional) - an
-  // existing widget prototype to inherit from, an object
-  // literal to become the widget's prototype );
-
   $.widget( "drupal.component", $.Widget, {
-
+    
+    // Add a data-attribute to the component instance so we can query
+    // the DOM for all of the Drupal components. Useful for simple
+    // pub/sub like so: $('[data-component]').trigger('drupal:event');
+    // For production code, the data-attributes should use a Drupal
+    // namespace, like data-DrupalUI-component, or shorthand like
+    // data-DCUI-component (Drupal Core UI).
     _create: function() {
       this.element.attr( 'data-component', this.widgetName );
     }
-
+    
+    // Overriding the following methods (destroy, _on, _hoverable, _focusable) 
+    // is dumb, but jQuery UI doesn’t allow us to configure the state classes 
+    // like 'ui-state-disabled'. It has been done here as an easy way to 
+    // achive (better) SMACSS conventions, so we have 'is-disabled' etc.
   , destroy: function() {
       this._destroy();
-      // we can probably remove the unbind calls in 2.0
-      // all event bindings should go through this._on()
       this.element
         .unbind( this.eventNamespace )
-        // 1.9 BC for #7810
-        // TODO remove dual storage
         .removeData( this.widgetName )
         .removeData( this.widgetFullName )
         .removeAttr( 'data-component' );
@@ -34,7 +40,6 @@
         .removeAttr( "aria-disabled" )
         .removeClass( "is-disabled" );
 
-      // clean up events and states
       this.bindings.unbind( this.eventNamespace );
       this.hoverable.removeClass( "is-hovered" );
       this.focusable.removeClass( "is-focused" );
@@ -58,29 +63,23 @@
       var delegateElement,
         instance = this;
 
-      // no suppressDisabledCheck flag, shuffle arguments
       if ( typeof suppressDisabledCheck !== "boolean" ) {
         handlers = element;
         element = suppressDisabledCheck;
         suppressDisabledCheck = false;
       }
 
-      // no element argument, shuffle and use this.element
       if ( !handlers ) {
         handlers = element;
         element = this.element;
         delegateElement = this.widget();
       } else {
-        // accept selectors, DOM elements
         element = delegateElement = $( element );
         this.bindings = this.bindings.add( element );
       }
 
       $.each( handlers, function( event, handler ) {
         function handlerProxy() {
-          // allow widgets to customize the disabled handling
-          // - disabled as an array instead of boolean
-          // - disabled class as method for disabling individual parts
           if ( !suppressDisabledCheck &&
               ( instance.options.disabled === true ||
                 $( this ).hasClass( "is-disabled" ) ) ) {
@@ -90,7 +89,6 @@
             .apply( instance, arguments );
         }
 
-        // copy the guid so direct unbinding works
         if ( typeof handler !== "string" ) {
           handlerProxy.guid = handler.guid =
             handler.guid || handlerProxy.guid || $.guid++;

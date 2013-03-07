@@ -1,14 +1,27 @@
 /**
  * @file
  */
+
+/**
+ * Render a set of like siblings as block elements, woth appropriate
+ * vertical spacing within.
+ */
 .block-sibling {
   padding: .75em 0;
 }
 
+/**
+ * Render a set of like siblings 'inline', with appropriate space between.
+ *
+ * 1. Use right margin to prevent wrapping lines appearing indented.
+ * 2. Provide additional vertical spacing to prevent collisions on wrap
+ */
 .inline-sibling {
   float: left;
-  margin-right: 1.5em;
+  margin-right: 1.5em; /* 1 */
+  padding: 0.75em 0; /* 2 */
 }
+/* In supported browsers, clean up extra space on the last item. */
 .inline-sibling:last-child {
   margin-right: 0;
 }

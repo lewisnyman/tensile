@@ -11,10 +11,6 @@
   clear: both;
 }
 
-.offset-parent {
-  position: relative;
-}
-
 .visually-hidden {
   position: absolute;
   overflow: hidden;

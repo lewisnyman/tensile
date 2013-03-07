@@ -2,10 +2,9 @@
  * @file
  */
 
+/* Position values are applied with JS at runtime. */
 .popup {
   position: absolute;
-  top: 100%;
-  left: 0;
   overflow: hidden;
   margin-top: 2px;
 }
@@ -29,12 +28,14 @@
   border-color: hsla(0, 0%, 0%, .3);
   border-radius: 5px;
   background: #ffffff;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip:    padding-box;
+  background-clip:         padding-box;
   -webkit-box-shadow: 0 3px 6px hsla(0, 0%, 0%, .15);
   -moz-box-shadow:    0 3px 6px hsla(0, 0%, 0%, .15);
   box-shadow:         0 3px 6px hsla(0, 0%, 0%, .15);
 }
+
 .popup--padded {
   padding: .75em 1em;
 }
-
-

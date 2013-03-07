@@ -1,11 +1,18 @@
 /*!
  * Main
+ *
+ * $  jQuery object
+ * w  window object
+ * d  document object
+ *
+ * ensure 'undefined' has not been modified
  */
-(function( $, w, d ) {
+
+(function( $, w, d, undefined ) {
+
   'use strict';
 
   $(d).ready(function() {
-    $('.js-component').component();
     $('.js-popup').popup();
     $('.js-menu').menu();
   });
